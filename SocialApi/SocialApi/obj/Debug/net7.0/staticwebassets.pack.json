@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Administrator\\Desktop\\New folder\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\imagesprofile\\192c9d62-dc5c-4f5e-ae22-b0664ad2240b.jpg",
+      "PackagePath": "staticwebassets\\imagesprofile\\192c9d62-dc5c-4f5e-ae22-b0664ad2240b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Administrator\\Desktop\\New folder\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\imagesprofile\\Empty.jpg",
+      "PackagePath": "staticwebassets\\imagesprofile\\Empty.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.SocialApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.SocialApi.props",
+      "PackagePath": "build\\SocialApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.SocialApi.props",
+      "PackagePath": "buildMultiTargeting\\SocialApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.SocialApi.props",
+      "PackagePath": "buildTransitive\\SocialApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

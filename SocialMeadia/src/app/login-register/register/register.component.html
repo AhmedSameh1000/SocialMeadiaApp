@@ -1,0 +1,196 @@
+<div class="mt-5">
+  <div class="login-form">
+    <h2>Register</h2>
+    <form (ngSubmit)="Onsubmit()" [formGroup]="signInForm" method="post">
+      <div class="form-group">
+        <label for="name">Gender</label>
+        <select formControlName="Gender" class="w-100 p-2">
+          <option value="Male">Male</option>
+          <option value="FeMale">FeMale</option>
+        </select>
+        <div
+          *ngIf="submited && signInForm.controls['Gender'].errors"
+          class="text text-danger"
+        >
+          <div
+            *ngIf="
+  submited && signInForm.controls['Gender'].errors?.['required']"
+          >
+            Please Select Gender
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="name"
+          required
+          id="name"
+          [ngClass]="{
+            'is-invalid': submited && signInForm.controls['name'].errors
+          }"
+        />
+        <div
+          *ngIf="submited && signInForm.controls['name'].errors"
+          class="text text-danger"
+        >
+          <div
+            *ngIf="
+    submited && signInForm.controls['name'].errors?.['required']"
+          >
+            first Name is Required
+          </div>
+
+          <div
+            *ngIf="
+    submited && signInForm.controls['name'].errors?.['minlength']"
+          >
+            firstName should be more than 3
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          [ngClass]="{
+            'is-invalid': submited && signInForm.controls['email'].errors
+          }"
+          type="text"
+          formControlName="email"
+          class="form-control"
+          id="email"
+          required
+        />
+        <div
+          *ngIf="submited && signInForm.controls['email'].errors"
+          class="text text-danger"
+        >
+          <div
+            *ngIf="
+        submited && signInForm.controls['email'].errors?.['required']"
+          >
+            email is Required
+          </div>
+
+          <div
+            *ngIf="
+        submited && signInForm.controls['email'].errors?.['email']"
+          >
+            email is Not Valid
+          </div>
+        </div>
+        <div *ngIf="Errors && Errors.includes('Email')">
+          {{ Errors }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="userName"
+          id="username"
+          required
+          [ngClass]="{
+            'is-invalid': submited && signInForm.controls['userName'].errors
+          }"
+        />
+        <div
+          *ngIf="submited && signInForm.controls['userName'].errors"
+          class="text text-danger"
+        >
+          <div
+            *ngIf="
+      submited && signInForm.controls['userName'].errors?.['required']"
+          >
+            user Name is Required
+          </div>
+
+          <div
+            *ngIf="
+      submited && signInForm.controls['userName'].errors?.['minlength']"
+          >
+            user Name length should be more than 5
+          </div>
+        </div>
+        <div *ngIf="Errors && Errors.includes('Username')">
+          {{ Errors }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          class="form-control"
+          type="password"
+          formControlName="password"
+          id="password"
+          name="password"
+          required
+          [ngClass]="{
+            'is-invalid': submited && signInForm.controls['userName'].errors
+          }"
+        />
+        <div
+          *ngIf="submited && signInForm.controls['password'].errors"
+          class="text text-danger"
+        >
+          <div
+            *ngIf="
+    submited && signInForm.controls['password'].errors?.['required']"
+          >
+            password is Required
+          </div>
+
+          <div
+            *ngIf="
+    submited && signInForm.controls['password'].errors?.['minlength']"
+          >
+            password length should be more than 6
+          </div>
+        </div>
+      </div>
+      <div class="w-100">
+        <button
+          class="w-100 btn btn-primary"
+          (click)="Register()"
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- 
+<input
+class="form-control"
+type="text"
+formControlName="name"
+required
+id="name"
+[ngClass]="{
+  'is-invalid': submited && signInForm.controls['name'].errors
+}"
+/>
+<div
+*ngIf="submited && signInForm.controls['name'].errors"
+class="text text-danger"
+>
+<div
+  *ngIf="
+submited && signInForm.controls['name'].errors?.['required']"
+>
+  first Name is Required
+</div>
+
+<div
+  *ngIf="
+submited && signInForm.controls['name'].errors?.['minlength']"
+>
+  firstName should be more than 3
+</div>
+</div> -->

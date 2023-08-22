@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg bg-primary">
+  <div class="container-fluid">
+    <div class="btn-group" dropdown>
+      <button
+        *ngIf="!AuthService.loggedIn()"
+        id="button-animated"
+        type="button"
+        class="btn btn-primary fs-3"
+        aria-controls="dropdown-animated"
+      >
+        Make Friends<span class="caret"></span>
+      </button>
+
+      <div *ngIf="AuthService.loggedIn()" style="margin: 0 10px 0 10px">
+        <img
+          width="50"
+          style="border-radius: 15px"
+          src="{{ UserServices.smallUser.url }}"
+          alt=""
+        />
+      </div>
+      <button
+        *ngIf="AuthService.loggedIn()"
+        id="button-animated"
+        dropdownToggle
+        type="button"
+        class="btn btn-primary dropdown-toggle fs-3"
+        aria-controls="dropdown-animated"
+      >
+        {{ UserServices.smallUser.name }} <span class="caret"></span>
+      </button>
+      <ul
+        id="dropdown-animated"
+        *dropdownMenu
+        class="mt-2 dropdown-menu w-100"
+        style="cursor: pointer"
+        role="menu"
+        aria-labelledby="button-animated"
+      >
+        <li
+          role="menuitem"
+          routerLink="profile"
+          class="d-flex justify-content-around align-items-center"
+        >
+          <i class="ms-2 me-2 fs-3 fa-solid fa-user"></i>
+          <a class="p-3 dropdown-item fs-3">Profile</a>
+        </li>
+        <li
+          role="menuitem"
+          routerLink=""
+          *ngIf="AuthService.isAdmin()"
+          class="d-flex justify-content-around align-items-center"
+        >
+          <i class="ms-2 me-2 fs-3 fa-solid fa-unlock-keyhole"></i>
+          <a class="p-3 dropdown-item fs-3">Users</a>
+        </li>
+      </ul>
+    </div>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse good" id="navbarNav">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item">
+          <a class="fs-3 text-light nav-link" routerLink="members">Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="fs-3 text-light nav-link" routerLink="Messages">Chat</a>
+        </li>
+        <li class="nav-item">
+          <a class="fs-3 nav-link text-light" routerLink="Contact">Contact</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="!AuthService.loggedIn()">
+          <a
+            class="fs-3 text-light nav-link active"
+            routerLink="signup"
+            aria-current="page"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="fs-3 text-light nav-link"
+            routerLink="login"
+            *ngIf="!AuthService.loggedIn()"
+            >login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="fs-3 text-light nav-link"
+            routerLink="login"
+            *ngIf="AuthService.loggedIn()"
+            (click)="AuthService.LogOut()"
+            >LogOut</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,24 @@
+*{
+    transition: 0.3s;
+}
+.card-img-top {
+    width: 100%;
+    height: 13vw;
+    object-fit:initial;
+    margin-top: -1px;
+    border-radius: 5px 5px 0px 0px/25px 25px 25px 5px;
+    cursor: pointer;
+
+}
+.card:hover img{
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+.card:hover .members-icons{
+    bottom: 0;
+} 
+.members-icons{
+   
+    position: absolute;
+    bottom: -100%;
+}

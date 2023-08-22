@@ -1,0 +1,237 @@
+<div class="container-fluid" style="height: 50vh">
+  <mat-tab-group>
+    <mat-tab label="Informations">
+      <div class="row container-fluid">
+        <div class="col-12 col-md-6">
+          <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Fill out your Data</ng-template>
+                <div class="mt-2" style="display: flex; flex-direction: column">
+                  <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input
+                      matInput
+                      placeholder="Last name, First name"
+                      required
+                      formControlName="name"
+                      ngModel="{{ UserData?.name }}"
+                    />
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>phone</mat-label>
+                    <input
+                      matInput
+                      placeholder="phone"
+                      required
+                      formControlName="phone"
+                      ngModel="{{ UserData?.phoneNumber }}"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="btn btn-secondary">
+                  <button (click)="UpdateData()" class="text-light" mat-button>
+                    Save
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>City,Country</ng-template>
+                <div class="mt-2" style="display: flex; flex-direction: column">
+                  <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input
+                      matInput
+                      placeholder="City"
+                      required
+                      formControlName="city"
+                      ngModel="{{ UserData?.city }}"
+                    />
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <input
+                      matInput
+                      formControlName="country"
+                      ngModel="{{ UserData?.country }}"
+                      placeholder="Country"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="btn btn-secondary">
+                  <button (click)="Updateplace()" class="text-light" mat-button>
+                    Save
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+
+            <mat-step [stepControl]="thirdFormGroup">
+              <form [formGroup]="thirdFormGroup">
+                <ng-template matStepLabel>Informations</ng-template>
+                <div class="mt-2" style="display: flex; flex-direction: column">
+                  <mat-form-field>
+                    <mat-label>interstes</mat-label>
+                    <input
+                      matInput
+                      placeholder="interstes"
+                      required
+                      formControlName="interstes"
+                      ngModel="{{ UserData?.interestes }}"
+                    />
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>introduction</mat-label>
+                    <input
+                      matInput
+                      formControlName="introduction"
+                      ngModel="{{ UserData?.introduction }}"
+                      placeholder="introduction"
+                      required
+                    />
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>LookingFor</mat-label>
+                    <input
+                      matInput
+                      formControlName="LookingFor"
+                      ngModel="{{ UserData?.lookingFor }}"
+                      placeholder="LookingFor"
+                      required
+                    />
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>knownAs</mat-label>
+                    <input
+                      matInput
+                      formControlName="KnownAs"
+                      ngModel="{{ UserData?.knownAS }}"
+                      placeholder="knownAs"
+                      required
+                    />
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Date Of Birth</mat-label>
+                      <input
+                        matInput
+                        [matDatepicker]="picker"
+                        formControlName="DateOfBirth"
+                        ngModel="{{ UserData?.dataOfBirt }}"
+                      />
+                      <mat-hint>MM/DD/YYYY</mat-hint>
+                      <mat-datepicker-toggle
+                        matIconSuffix
+                        [for]="picker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </mat-form-field>
+                </div>
+                <div class="btn btn-secondary">
+                  <button
+                    (click)="Updateinformations()"
+                    class="text-light"
+                    mat-button
+                  >
+                    Save
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="FurthFormGroup">
+              <form [formGroup]="FurthFormGroup">
+                <ng-template matStepLabel>Change Password</ng-template>
+                <div class="mt-2" style="display: flex; flex-direction: column">
+                  <mat-form-field>
+                    <mat-label>Old Password</mat-label>
+                    <input
+                      #oldpass
+                      matInput
+                      placeholder="Current Password"
+                      required
+                      formControlName="oldpassword"
+                    />
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>New Password</mat-label>
+                    <input
+                      #newpass
+                      matInput
+                      placeholder="New Password"
+                      required
+                      formControlName="newpassword"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="btn btn-secondary">
+                  <button
+                    (click)="ChangePassword(oldpass, newpass)"
+                    class="text-light"
+                    mat-button
+                  >
+                    Save
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+          </mat-stepper>
+        </div>
+        <div class="col-12 col-md-6">
+          <div>
+            <form
+              class="d-flex justify-content-center flex-column align-items-center"
+              enctype="multipart/form-data"
+            >
+              <img
+                #ele2
+                src="{{ UserProfile?.url }}"
+                class="w-75 h-75"
+                alt=""
+              />
+              <div class="m-auto d-flex w-75">
+                <input
+                  #inp
+                  (change)="SelectImage($event)"
+                  type="file"
+                  class="d-block form-control"
+                />
+                <button (click)="Create(ele2, inp)" class="btn btn-secondary">
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="My Images">
+      <div class="w-100 row justify-content-around gap-2">
+        <div
+          #ele
+          class="imgg rel col-12 col-md-6 col-lg-3"
+          *ngFor="let Image of PhotosForuser"
+        >
+          <img style="max-width: 100%" src="{{ Image.url }}" alt="" />
+          <div class="pos d-flex">
+            <div
+              *ngIf="!Image.isMain"
+              (click)="setImageProfile(Image, ele2)"
+              class="btn btn-success"
+            >
+              <i class="fa-solid fa-user me-2"></i> set Profile
+            </div>
+            <div (click)="delete(ele, Image, ele2)" class="btn btn-danger">
+              <i class="fa-solid fa-trash me-1"></i> Delete
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

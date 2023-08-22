@@ -1,0 +1,49 @@
+<div class="container mt-2" style="overflow-y: scroll; height: 60vh">
+  <div style="height: 100%">
+    <div *ngFor="let Message of Messages">
+      <div
+        class="d-flex align-items-center gap-2 mt-3 mb-3 p-2"
+        [ngClass]="{
+          'flex-row-reverse': Message.senderId != authservice.GetUserId(),
+          'Sender': Message.senderId == authservice.GetUserId(),
+          'Rec': Message.senderId != authservice.GetUserId(),
+        }"
+      >
+        <div>
+          <img
+            src="{{ Message.senderPhotoUrl }}"
+            style="width: 40px; border-radius: 50%"
+            alt=""
+          />
+        </div>
+        <div
+          class="fw-bold"
+          [ngClass]="{
+            'text-start': Message.senderId == authservice.GetUserId(),
+            'text-end': Message.senderId != authservice.GetUserId()
+          }"
+        >
+          {{ Message.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <form class="row" [formGroup]="_MessageToSend">
+    <input
+      (click)="SendnewMessage(inp)"
+      class="col-2 btn btn-primary"
+      value="Send"
+      type="submit"
+    />
+    <input
+      #inp
+      formControlName="content"
+      style="border: none"
+      class="col-10 p-3"
+      placeholder="Type Message"
+      type="text"
+    />
+  </form>
+</div>

@@ -1,0 +1,93 @@
+<div class="container mt-1">
+  <div class="row justify-content-between">
+    <div class="col-6 text-center mt-3">
+      <h3>
+        {{ likeParam === "Likers" ? "Users Likes Me" : "Users i Like" }}
+        : {{ pagination.totalItems }}
+      </h3>
+    </div>
+    <div class="col-1">
+      <div class="btn-group-vertical">
+        <button
+          type="button"
+          (click)="loadUsers('Likers')"
+          class="btn btn-primary mb-2"
+        >
+          Likers
+        </button>
+        <button
+          type="button"
+          (click)="loadUsers('Likees')"
+          class="btn btn-secondary"
+        >
+          Likees
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let user of Users" class="mt-2 col-sm-6 col-lg-2 col-md-3">
+        <div class="card mb-4">
+          <div
+            style="
+              cursor: pointer;
+              position: relative;
+              text-align: center;
+              display: flex;
+              justify-content: center;
+              overflow: hidden;
+            "
+            class="wrapper"
+          >
+            <img
+              class="card-img-top"
+              style="height: 250px"
+              src="{{ user.photoUrl }}"
+              alt="{{ user.knownAS }}"
+              [routerLink]="['/members/', user.id]"
+            />
+          </div>
+          <div class="card-body p-1">
+            <h6
+              style="font-weight: bold; font-family: 'JF Flat'; font-size: 1rem"
+              class="card-title text-center mb-1"
+            >
+              <i
+                style="color: #c51a36"
+                *ngIf="user.gender == 'Female'"
+                class="fa-solid fa-person-dress"
+              ></i>
+              <i
+                style="color: #62e119"
+                *ngIf="user.gender == 'Male'"
+                class="fa-solid fa-person"
+              ></i>
+              {{ user.name }} , {{ user.age }}
+            </h6>
+            <p
+              style="font-weight: bold; font-family: 'JF Flat'; font-size: 1rem"
+              class="card-text text-muted text-center"
+            >
+              {{ user.city }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="pagination.totalItems > 0" class="d-flex justify-content-center">
+    <pagination
+      [boundaryLinks]="true"
+      [itemsPerPage]="pagination.itemPerPage"
+      [totalItems]="pagination.totalItems"
+      [(ngModel)]="pagination.currentPage"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    >
+    </pagination>
+  </div>
+</div>

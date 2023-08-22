@@ -1,0 +1,78 @@
+<div class="container mt-3 mb-3">
+  <div class="d-flex justify-content-center gap-5">
+    <button
+      (click)="loadMessages('Inbox')"
+      [ngClass]="{ active: messageType == 'Inbox' }"
+      class="btn btn-outline-primary"
+    >
+      <i class="fa fa-envelope-open"></i> Others
+    </button>
+    <button
+      (click)="loadMessages('Outbox')"
+      [ngClass]="{ active: messageType == 'Outbox' }"
+      class="btn btn-outline-primary"
+    >
+      <i class="fa fa-paper-plane"></i> Sended
+    </button>
+    <button
+      (click)="loadMessages('Unread')"
+      [ngClass]="{ active: messageType == 'Unread' }"
+      class="btn btn-outline-primary"
+    >
+      <i class="fa fa-envelope"></i> Unreaded
+    </button>
+  </div>
+  <hr />
+  <div
+    class="mb-3 d-flex justify-content-between gap-2 align-items-center"
+    *ngFor="let Message of messages"
+  >
+    <div class="d-flex align-items-center gap-2">
+      <div>
+        <img
+          style="width: 40px; border-radius: 50%"
+          src="{{ Message.senderPhotoUrl }}"
+          alt=""
+        />
+      </div>
+      <div
+        style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis"
+      >
+        {{ Message.content }}
+      </div>
+    </div>
+    <div *ngIf="messageType == 'Outbox'">To</div>
+    <div
+      *ngIf="messageType == 'Outbox'"
+      class="d-flex align-items-center gap-2"
+    >
+      <div>{{ Message.recipientKnownAs }}</div>
+      <div>
+        <img
+          [routerLink]="[
+            '/members',
+            messageType == 'Outbox' ? Message.recipientId : Message.senderId
+          ]"
+          style="width: 40px; border-radius: 50%"
+          src="{{ Message.recipientPhotoUrl }}"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.itemPerPage"
+    [(ngModel)]="pagination.currentPage"
+    (pageChanged)="pageChaged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>

@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let user of Users" class="mt-2 col-sm-6 col-lg-2 col-md-3">
+      <div class="card mb-4">
+        <div
+          style="
+            position: relative;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+          "
+          class="wrapper"
+        >
+          <img
+            class="card-img-top"
+            style="height: 250px"
+            src="{{ user.photoUrl }}"
+            alt="{{ user.knownAS }}"
+          />
+          <ul class="list-inline members-icons text-center">
+            <li [routerLink]="['/members/', user.id]" class="list-inline-item">
+              <button class="btn btn-sm btn-outline-success">
+                <i class="fa fa-user"></i>
+              </button>
+            </li>
+            <li
+              *ngIf="!user.isLikedByCurrentUser"
+              (click)="SendLike(user.id)"
+              class="list-inline-item"
+            >
+              <button class="btn btn-sm btn-outline-danger">
+                <i class="fa fa-heart"></i>
+              </button>
+            </li>
+
+            <li
+              *ngIf="user.isLikedByCurrentUser"
+              (click)="DisLikethisUser(user.id)"
+              class="list-inline-item"
+            >
+              <button class="btn btn-sm btn-outline-danger">
+                <i class="fa-solid fa-heart-crack"></i>
+              </button>
+            </li>
+
+            <li
+              [routerLink]="['/members/', user.id]"
+              [queryParams]="{ tab: 3 }"
+              class="list-inline-item"
+            >
+              <button class="btn btn-sm btn-outline-secondary">
+                <i class="fa fa-message"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body p-1">
+          <h6
+            style="font-weight: bold; font-family: 'JF Flat'; font-size: 1rem"
+            class="card-title text-center mb-1"
+          >
+            <i
+              style="color: #c51a36"
+              *ngIf="user.gender == 'Female'"
+              class="fa-solid fa-person-dress"
+            ></i>
+            <i
+              style="color: #62e119"
+              *ngIf="user.gender == 'Male'"
+              class="fa-solid fa-person"
+            ></i>
+            {{ user.name }} , {{ user.age }}
+          </h6>
+          <p
+            style="font-weight: bold; font-family: 'JF Flat'; font-size: 1rem"
+            class="card-text text-muted text-center"
+          >
+            {{ user.city }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.itemPerPage"
+    [(ngModel)]="pagination.currentPage"
+    previousText="&lsaquo;"
+    (pageChanged)="pageChanged($event)"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>

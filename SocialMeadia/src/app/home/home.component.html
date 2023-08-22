@@ -1,0 +1,28 @@
+<div
+  style="height: 90vh"
+  class="d-flex justify-content-center align-items-center"
+>
+  <div class="card">
+    <h1 class="card-title">Join With Us Now</h1>
+    <h3 class="small-desc">you can join now and make alot of friends</h3>
+    <div class="gap-2 d-flex justify-content-center gap-2">
+      <button
+        [routerLink]="['/signup']"
+        routerLinkActive="router-link-active"
+        class="btn btn-outline-primary"
+      >
+        Register
+      </button>
+      <button
+        [routerLink]="['/login']"
+        routerLinkActive="router-link-active"
+        class="btn btn-outline-primary"
+      >
+        Login
+      </button>
+    </div>
+    <div class="go-corner">
+      <div class="go-arrow">→</div>
+    </div>
+  </div>
+</div>

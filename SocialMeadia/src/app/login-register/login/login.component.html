@@ -1,0 +1,76 @@
+<div class="mt-5">
+  <div class="login-form">
+    <h2>login</h2>
+    <form (ngSubmit)="Onsubmit()" [formGroup]="LogInForm" method="post">
+      <div class="form-group">
+        <label for="username">Email</label>
+        <input
+          [ngClass]="{
+            'is-invalid': submited && LogInForm.controls['email'].errors
+          }"
+          type="text"
+          formControlName="email"
+          class="form-control"
+          id="username"
+          required
+        />
+        <div
+          *ngIf="submited && LogInForm.controls['email'].errors"
+          class="text text-danger"
+        >
+          <div
+            *ngIf="
+        submited && LogInForm.controls['email'].errors?.['required']"
+          >
+            email is Required
+          </div>
+
+          <div
+            *ngIf="
+        submited && LogInForm.controls['email'].errors?.['email']"
+          >
+            email is Not Valid
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          class="form-control"
+          type="password"
+          formControlName="password"
+          id="password"
+          name="password"
+          required
+          [ngClass]="{
+            'is-invalid': submited && LogInForm.controls['password'].errors
+          }"
+        />
+        <div
+          *ngIf="submited && LogInForm.controls['password'].errors"
+          class="text text-danger"
+        >
+          <div
+            *ngIf="
+    submited && LogInForm.controls['password'].errors?.['required']"
+          >
+            password is Required
+          </div>
+
+          <div
+            *ngIf="
+    submited && LogInForm.controls['password'].errors?.['minlength']"
+          >
+            password length should be more than 6
+          </div>
+        </div>
+      </div>
+      <div class="w-100">
+        <button (click)="Login()" class="w-100 btn btn-primary" type="submit">
+          login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

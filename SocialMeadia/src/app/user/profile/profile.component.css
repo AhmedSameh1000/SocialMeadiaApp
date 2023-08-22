@@ -1,0 +1,16 @@
+.rel{
+    position: relative;
+    overflow: hidden;
+}
+.pos{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: -100%;
+    transition: 0.3s;
+    gap: 5px;
+}
+.imgg:hover .pos{
+    bottom: 20%;
+}
