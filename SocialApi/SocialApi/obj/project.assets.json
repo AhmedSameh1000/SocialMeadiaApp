@@ -12082,11 +12082,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\New folder\\SocialMeadiaApp\\SocialApi\\SocialApi\\SocialApi.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\App\\SocialMeadiaApp\\SocialApi\\SocialApi\\SocialApi.csproj",
       "projectName": "SocialApi",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\New folder\\SocialMeadiaApp\\SocialApi\\SocialApi\\SocialApi.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\App\\SocialMeadiaApp\\SocialApi\\SocialApi\\SocialApi.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\New folder\\SocialMeadiaApp\\SocialApi\\SocialApi\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\App\\SocialMeadiaApp\\SocialApi\\SocialApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",

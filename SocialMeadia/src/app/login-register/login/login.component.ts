@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Services/Auth/auth.service';
+import { SignalRService } from 'src/app/Services/SignalR/signal-r.service';
 import { UserService } from 'src/app/Services/User/user.service';
 @Component({
   selector: 'app-login',
@@ -18,13 +19,12 @@ export class LoginComponent {
     public Authservice: AuthService,
       private Router: Router,
       private Toaster: ToastrService,
-    private UserService:UserService
+    private UserService:UserService,
 
   ) { 
     }
   
     ngOnInit(): void {
-
     this.CreateForm();
   }
   CreateForm() {
@@ -35,10 +35,12 @@ export class LoginComponent {
   }
   
  Login() {
+  
     if (this.LogInForm.invalid) {
       return;
     }
     this.Authservice.login(this.LogInForm.value).subscribe({
+
       next: (e: any) => {  
         this.name = e.name;       
         localStorage.setItem("token", e.token); 
@@ -50,7 +52,7 @@ export class LoginComponent {
       complete: () => {
         this.Toaster.success("User log in Succefuly");
          
-         this.Router.navigate(["members"]);
+         this.Router.navigate([""]);
       
       }   
     })

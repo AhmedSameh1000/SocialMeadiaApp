@@ -28,11 +28,13 @@ export class MembermessagesComponent {
   
     }
     ngOnInit(): void {
-      this.SignalR.startConnection()
+      let token=this.authservice.getToken()
+      this.SignalR.startConnection(token)
       this.LoadMessages()
       this.CreateMessage();
-      this.SignalR.HubConnection.on("Data",()=>{
-        this.LoadMessages();  
+      this.SignalR.HubConnection.on("Data",(message:Message)=>{
+        console.log(message);
+         this.Messages.push(message);
       })
 
     }
@@ -55,7 +57,7 @@ export class MembermessagesComponent {
       console.log(Message)
       Message.senderPhotoUrl=this.UserService.smallUser.url
       this.Messages.push(Message)
-      this.SignalR.HubConnection.invoke('Refresh').then((res:any)=>{
+      this.SignalR.HubConnection.invoke('Refresh',this._MessageToSend.value.recipientId,this._MessageToSend.value).then((res:any)=>{
         console.log("call sercvies "+ res)
       },(Error:any)=>{
         console.log("error happen "+ Error)
