@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Up4N0xTyNnuVpnG5q8nbfh/E0Cj62ggNyHoH4yOiVs0=",
+  "Hash": "c2NgE1ahlGt9OonRbTgXt7H84OGROdJ4tTTyWkiP4Sg=",
   "Source": "SocialApi",
   "BasePath": "_content/SocialApi",
   "Mode": "Default",
@@ -10,22 +10,24 @@
     {
       "Name": "SocialApi\\wwwroot",
       "Source": "SocialApi",
-      "ContentRoot": "C:\\Users\\Administrator\\Desktop\\App\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ahmed Sameh\\Desktop\\SocialMeadia\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\",
       "BasePath": "_content/SocialApi",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Administrator\\Desktop\\App\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\imagesprofile\\192c9d62-dc5c-4f5e-ae22-b0664ad2240b.jpg",
+      "Identity": "C:\\Users\\Ahmed Sameh\\Desktop\\SocialMeadia\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\imagesprofile\\192c9d62-dc5c-4f5e-ae22-b0664ad2240b.jpg",
       "SourceId": "SocialApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Administrator\\Desktop\\App\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ahmed Sameh\\Desktop\\SocialMeadia\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\",
       "BasePath": "_content/SocialApi",
       "RelativePath": "imagesprofile/192c9d62-dc5c-4f5e-ae22-b0664ad2240b.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -34,15 +36,17 @@
       "OriginalItemSpec": "wwwroot\\imagesprofile\\192c9d62-dc5c-4f5e-ae22-b0664ad2240b.jpg"
     },
     {
-      "Identity": "C:\\Users\\Administrator\\Desktop\\App\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\imagesprofile\\Empty.jpg",
+      "Identity": "C:\\Users\\Ahmed Sameh\\Desktop\\SocialMeadia\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\imagesprofile\\Empty.jpg",
       "SourceId": "SocialApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Administrator\\Desktop\\App\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ahmed Sameh\\Desktop\\SocialMeadia\\SocialMeadiaApp\\SocialApi\\SocialApi\\wwwroot\\",
       "BasePath": "_content/SocialApi",
       "RelativePath": "imagesprofile/Empty.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
